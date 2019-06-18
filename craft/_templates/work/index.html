@@ -1,0 +1,71 @@
+{% header "Access-Control-Allow-Origin: *" %}
+
+{% extends '_layout' %}
+
+{% block content %}
+
+{% set params = craft.entries.section( craft.request.getFirstSegment() ) %}
+
+	<div class="work-main">
+		
+		{% set currentRow = 0 %}
+		
+		{% set numRows = 1 %}
+		
+		{% for entry in params.find() %}
+			
+			{% if currentRow == 0 %}
+			
+				<div class="work-thumbnail-column">
+					
+				{% if entry.thumbnailHeight == 'half' %}
+					
+					{% set next = entry.getNext(params) %}
+				
+					{% if next and next.thumbnailHeight == 'half' %}
+					
+						{% set numRows = 2 %}
+					
+					{% endif %}
+					
+				{% endif %}
+					
+			{% endif %}
+				
+				<a href="/project/{{ entry.slug }}">
+					
+					{% set thumbnail = entry.thumbnail.first() %}
+					
+					{% set orientationClass = thumbnail.width > thumbnail.height ? 'landscape' : 'portrait' %}
+											
+					<div class="work-thumbnail {{entry.thumbnailHeight}} {{orientationClass}}">
+		
+						<div class="work-thumbnail-image" style="background-image: url({{thumbnail.getUrl('medium')}});"></div>
+						<p>
+							<strong>{{entry.title}}</strong><br>
+							{{entry.client}}, {{entry.year}}
+						</p>
+													
+					</div>
+				
+				</a>
+				
+			{% if currentRow == numRows - 1 %}
+			
+				</div> <!-- .work-thumbnail-column -->
+				
+				{% set numRows = 1 %}
+				{% set currentRow = 0 %}
+				
+			{% else %}
+			
+				{% set currentRow = currentRow + 1 %}
+				
+			{% endif %}
+			
+		{% endfor %}
+			
+	</div>
+
+
+{% endblock %}

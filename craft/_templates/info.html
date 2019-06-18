@@ -1,0 +1,21 @@
+{% header "Access-Control-Allow-Origin: *" %}
+
+{% extends "_layout" %}
+
+{% block content %}
+	
+	{% set entry = craft.entries.section('info').first() %}
+	
+	<section class="info-main">
+		
+		<div class="info-inner">
+		
+			{{entry.aboutText}}
+		
+			<p><a href="{{entry.pdfFile.first().url}}" target="_blank">{{entry.pdfLinkText}}</a></p>
+		
+		</div>
+		
+	</section>
+
+{% endblock %}

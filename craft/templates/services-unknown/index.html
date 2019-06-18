@@ -1,0 +1,38 @@
+{% header "Access-Control-Allow-Origin: *" %}
+
+{% extends '_layout' %}
+
+{% block content %}
+
+	<div class="main services-main">
+        
+        <div class="services-row">
+        
+            {% for entry in craft.entries.section('servicesUnknown') %}
+            
+                {% set thumbnail = entry.thumbnail.first() %}
+                
+            	<div class="services-thumbnail">
+            	    
+            	    <a href="/post/{{ entry.slug }}">
+                        
+        				{% include 'work/blocks/rspImg.html' with { img: thumbnail } %}
+    	                
+    					<p>
+    						<strong>{{entry.title}}</strong><br>
+    						{% if entry.excerpt %}{{ entry.excerpt|slice(0, 100) }}...{% endif %}
+    					</p>
+    				
+    				</a>
+    											
+    			</div>
+        
+            {% endfor %}
+        
+       
+        
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{# Work entry template #}
+
+{% extends '_layout' %}
+
+{% block content %}
+	
+	{% set slug = craft.request.getSegment(3) %}
+	{% set params = craft.entries.section('work') %}
+	
+	<ul class="project-title">
+		<li><strong>{{entry.title}}</strong> &mdash; {{entry.client}}, {{entry.year}}</li>
+	</ul>
+	
+	<ul class="nav project-nav">
+		
+		{% set next = entry.getNext(params) %}
+		{% set prev = entry.getPrev(params) %}
+		
+		{% if prev %}
+		<li>
+			<a href="/project/{{prev.slug}}">
+				<strong>&uarr;PREVIOUS</strong>
+			</a>
+		</li>
+		{% endif %}
+		
+		{% if prev and next %}
+		
+			<li>&nbsp;&mdash;&nbsp;</li>
+		
+		{% endif %}
+		
+		{% if next %}
+		<li>
+			<a href="/project/{{next.slug}}">
+				<strong>NEXT&darr;</strong>
+			</a>		
+		</li>
+		{% endif %}
+		
+	</ul>
+	
+	<section class="project-main">
+			
+		{% for block in entry.contentBlocks %}
+		
+			{% include 'work/blocks/' ~ block.type ~ '.html' %}
+			
+		{% endfor %}	
+		
+	</section>
+
+{% endblock %}

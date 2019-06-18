@@ -1,0 +1,72 @@
+.archive-main {
+    
+    position: relative;
+    
+	.two-d & {
+		padding: $menu-margin-small $base-margin $base-margin $base-margin;
+		@include tablet{
+			padding: $menu-margin-medium $menu-margin-medium $base-margin $menu-margin-medium;
+		}
+		@include desktop {
+			padding: $menu-margin-large $menu-margin-large $base-margin $menu-margin-large;
+		}
+	}
+	
+    &:after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    
+}
+
+.archive-thumbnail {
+    
+    margin-bottom: 2em;
+    float: left;
+    
+    img {
+        width: 100%;
+        display: block;
+        margin-bottom: .25em;
+    }
+    
+    max-width: 100%;
+    
+    @include tablet {
+        
+        padding-right: 2em;
+
+        &-small {
+            width: 25vh;
+        }
+        
+        &-medium {
+            width: 50vh;
+        }
+        
+        &-large {
+            width: 75vh;
+        }
+        
+    }
+    
+    // @include desktop {
+        
+    //     &-small {
+    //         width: 25%;
+    //     }
+        
+    //     &-medium {
+    //         width: 50%;
+    //     }
+        
+    //     &-large {
+    //         width: 75%;
+    //     }
+
+        
+    // }
+    
+    
+}

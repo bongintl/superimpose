@@ -1,0 +1,56 @@
+@mixin fade-transition($duration: $transition-duration){
+	transition: opacity $duration cubic-bezier(0, 1, 0.5, 1);
+}
+
+@mixin standard-fade-transition($duration: $transition-duration){
+	transition: opacity $duration;
+}
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+     @media (min-width: 769px) { @content; }
+  }
+  //  @else if $point == laptop {
+  //    @media (min-width: 64em) { @content ; }
+  // }
+    @else if $point == tablet {
+     @media (min-width: 415px) { @content; }
+  }
+  //  @else if $point == phablet {
+  //    @media (min-width: 37.5em)  { @content ; }
+  // }
+  @else if $point == phone {
+     @media (max-width: 414px)  { @content; }
+
+  }
+}
+
+@mixin phone() {
+  @include breakpoint(phone) { @content; }
+}
+
+@mixin tablet() {
+  @include breakpoint(tablet) { @content; }
+}
+
+@mixin desktop() {
+  @include breakpoint(desktop) { @content; }
+}
+
+@mixin menu-margin($property){
+    
+    #{$property}: $menu-margin-small;
+    
+    @include tablet {
+        
+        #{$property}: $menu-margin-medium;
+        
+    }
+    
+    @include desktop {
+        
+        #{$property}: $menu-margin-large;
+        
+    }
+    
+}

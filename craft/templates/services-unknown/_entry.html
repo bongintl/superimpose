@@ -1,0 +1,117 @@
+{# Services Unknown entry template #}
+
+{% extends '_layout' %}
+
+{% block content %}
+
+	{% set slug = craft.request.getSegment(3) %}
+	{% set params = craft.entries.section('servicesUnknown') %}
+	
+	
+    
+	
+	
+	
+	
+	<ul class="nav project-nav">
+		
+		{% set next = entry.getNext(params) %}
+		{% set prev = entry.getPrev(params) %}
+		
+		{% if prev %}
+		<li>
+			<a href="/post/{{prev.slug}}">
+				<strong>&uarr;PREVIOUS</strong>
+			</a>
+		</li>
+		{% endif %}
+		
+		{% if prev and next %}
+		
+			<li>&nbsp;&mdash;&nbsp;</li>
+		
+		{% endif %}
+		
+		{% if next %}
+		<li>
+			<a href="/post/{{next.slug}}">
+				<strong>NEXT&darr;</strong>
+			</a>		
+		</li>
+		{% endif %}
+		
+	</ul>
+	
+	
+	
+	{% set thumbnail = entry.thumbnail.first() %}
+
+
+	<section class="main post-main">
+		
+		<div class="post-header">
+	        
+	        <div class="post-headerimage">
+				{% include 'work/blocks/rspImg.html' with { img: thumbnail } %}
+	        </div>
+	        
+		    <div class="post-headertext">
+		    	<div>
+		        	<h2>{{ entry.title }}</h2>
+		        	<p>{{ entry.postDate | date("d/m/Y") }}</p>
+		        	<p>{{ entry.excerpt }}</p>
+	        	</div>
+	        </div>
+	        
+        </div>
+
+
+		
+			
+		{% for block in entry.contentRows %}
+		
+			<div class="row">
+				
+				{% set type = block.type %}
+				
+				{% if type == 'copy' %}
+					
+					{% set pos = block.position %}
+					<div class="
+					{% if pos == 'full' %}col-12
+					{% elseif pos == 'left' %}col-6
+					{% elseif pos == 'center' %}col-6 off-3
+					{% elseif pos == 'right' %}col-6 off-6
+					{% endif %}
+					">
+						{{ block.copy }}
+					</div>
+					
+				{% elseif type == 'pullQuote'  %}
+				
+					<div class="col-12">
+						<h4>{{ block.copy }}</h4>
+					</div>
+					
+				{% elseif type == 'image'  %}
+				
+					<div class="col-12">
+						{% include 'work/blocks/rspImg.html' with { img: block.file.first(), classes: block.size } %}
+					</div>
+					
+				{% elseif type == 'pullQuoteImage'  %}
+				
+					<div class="col-12 pull-image">
+						{% include 'work/blocks/rspImg.html' with { img: block.file.first(), classes: block.size } %}
+						<h4>{{ block.copy }}</h4>
+					</div>
+				
+				{% endif %}
+				
+			</div>
+		
+		{% endfor %}
+		
+    </section>
+    
+{% endblock %}

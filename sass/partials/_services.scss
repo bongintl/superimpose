@@ -1,0 +1,124 @@
+.services-main {
+	
+	width: 100%;
+	transform: translate3d(0,0,0);
+	position: relative;
+	
+	&:after{
+	    clear: both;
+	    content: "";
+	    display: block;
+	}
+	
+	.two-d & {
+		padding: $menu-margin-small $base-margin $base-margin $base-margin;
+		@include tablet{
+			padding: $menu-margin-medium $menu-margin-medium $base-margin $menu-margin-medium;
+		}
+		@include desktop {
+			padding: $menu-margin-large $menu-margin-large $base-margin $menu-margin-large;
+		}
+	}
+	
+}
+
+.services-row {
+	
+	@include tablet {
+		
+		margin: 0 -15px;
+		
+	}
+	
+	@include desktop {
+		
+		margin: 0 -30px;
+		
+	}
+	
+}
+
+.services-thumbnail{
+	
+	float: left;
+	
+	width: 100%;
+	
+	padding-bottom: 15px;
+	
+	@include tablet {
+		
+		width: 50%;
+		padding: 0 15px 30px 15px;
+		
+		&:nth-child(2n+1) {
+		    clear: left;
+		}
+		
+	}
+	
+	@include desktop {
+		
+		width: 33%;
+		padding: 0 30px 60px 30px;
+		
+		&:nth-child(2n+1) {
+			clear: none;
+		}
+		
+		&:nth-child(3n+1) {
+		    clear: left;
+		    content: "";
+		    display: block;
+		}
+		
+	}
+	
+	@include tablet {
+	
+		&:nth-child(5n+3) {
+			padding-top: 2em;
+		}
+	
+		&:nth-child(4n+1) {
+			padding-top: 4em;
+		}
+	
+		&:nth-child(5n) {
+			padding-top: 3em;
+		}
+	
+	}
+	
+	img {
+	    width: 100%;
+	}
+	
+	p {
+	    margin-top: 5px;
+		white-space: initial;
+	}
+	
+}
+
+.services-thumbnail-image{
+	
+	position: absolute;
+	background-repeat: no-repeat;
+	width: 100%;
+	top: 0;
+	bottom: 6em;
+	background-position: left bottom;
+	
+	.full & {
+		background-size: contain;
+	}
+	
+	.half & {
+		background-size: contain;
+	}
+	
+}
+
+
+

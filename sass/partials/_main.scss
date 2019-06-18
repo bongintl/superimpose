@@ -1,0 +1,29 @@
+main{
+    
+    .two-d & {
+        min-width: 100%;
+        min-height: 100%;
+    }
+    
+    .two-d.page-work & {
+        width: 100%;
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .three-d & {
+        position: fixed;
+        overflow: hidden;
+        @include menu-margin(top);
+        @include menu-margin(bottom);
+        @include menu-margin(left);
+        @include menu-margin(right);
+    }
+    
+    .first-load & {
+        visibility: hidden;
+    }
+    
+}

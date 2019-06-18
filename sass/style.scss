@@ -1,0 +1,22 @@
+@import 'modules/_variables';
+@import 'modules/_mixins';
+
+@import 'globals/_reset';
+@import 'globals/_body';
+@import 'globals/_fonts';
+@import 'globals/_typography';
+@import 'globals/_grid';
+@import 'globals/_pads-gaps';
+@import 'globals/_visibility';
+@import 'globals/_utils';
+
+@import 'partials/_nav';
+@import 'partials/_main';
+@import 'partials/_face';
+@import 'partials/_home';
+@import 'partials/_info';
+@import 'partials/_work';
+@import 'partials/_archive';
+@import 'partials/_project';
+@import 'partials/_services';
+@import 'partials/_post';

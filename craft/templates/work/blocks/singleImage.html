@@ -1,0 +1,28 @@
+<div class="row row_big-image">
+	
+	{% if block.size == 'autoHeight' %}
+	
+		{% set img = block.image.first() %}
+		
+		<div class="col-12">
+			
+			{% set classes = "auto-height position-" ~ block.position %}
+			
+			{% include 'work/blocks/rspBg.html' with { img: img, classes: classes } %}
+    	
+    	</div>
+	
+	{% else %}
+	
+		<div class="
+			col-{{block.size}}
+			{% if block.position == 'center' %} off-{{ (12 - block.size.value) / 2 }}
+			{% elseif block.position == 'right' %} off-{{ 12 - block.size.value }}
+			{% endif %}
+			">
+			{% include 'work/blocks/rspImg.html' with { img: block.image.first() } %}
+		</div>
+	
+	{% endif %}
+	
+</div>

@@ -1,0 +1,113 @@
+    <!--
+    
+     
+          '             .           .
+       o       '   o  .     '   . O
+    '   .   ' .   _____  '    .      .
+     .     .   .mMMMMMMMm.  '  o  '   .
+   '   .     .MMXXXXXXXXXMM.    .   ' 
+  .       . /XX77:::::::77XX\ .   .   .
+     o  .  ;X7:::''''''':::7X;   .  '
+    '    . |::'.: BONG    '::| .   .  .
+       .   ;:.:.            :;. o   .
+    '     . \'.:            /.    '   .
+       .     `.':.        .'.  '    .
+     '   . '  .`-._____.-'   .  . '  .
+      ' o   '  .   O   .   '  o    '
+       . ' .  ' . '  ' O   . '  '   '
+        . .   '    '  .  '   . '  '
+         . .'..' . ' ' . . '.  . '
+          `.':.'        ':'.'.'
+            `\\_  |     _//'
+              \(  |\    )/
+              //\ |_\  /\\
+             (/ /\(" )/\ \)
+              \/\ (  ) /\/
+                 |(  )|
+                 | \( \
+                 |  )  \
+                 |      \
+                 |       \
+                 |        `.__,
+                 \_________.-'Ojo/gnv
+    
+          http://bong.international/
+    
+    -->
+
+{% set isHome = craft.request.path == '' %}
+
+<html>
+    
+    <head>
+        
+        <title>{{ siteName }}</title>
+        
+        <link rel="stylesheet" href="/style.css">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        
+    </head>
+    
+    <body class="{{ craft.request.isLivePreview or craft.lj_mobiledetect.type != "none" ? 'two-d' : 'three-d first-load' }} page-{{ craft.request.firstSegment ? craft.request.firstSegment : 'home' }}">
+        
+        <ul class="nav nav_small {{ isHome ? 'nav_hidden' : '' }}">
+            <li><strong>{{ siteName }}</strong></li>
+            <li><a href="/work">SELECTED WORK</a></li>
+            <li><a href="/archive">ARCHIVE</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <!--<li><a href="/team">TEAM</a></li>-->
+            <li><a href="/services-unknown">SERVICES UNKNOWN</a></li>
+            
+            <!--<li><a href="{{ socialLinks.facebook }}" target="_blank">FACEBOOK</a></li>-->
+            <!--<li><a href="{{ socialLinks.twitter }}" target="_blank">TWITTER</a></li> -->
+            <li><a href="{{ socialLinks.instagram }}" target="_blank">INSTAGRAM</a></li>
+            <li>&copy; {{ now.year }}</li>
+        </ul>
+        
+		<ul class="nav nav_full {{ isHome ? 'nav_hidden' : '' }}">
+		    <li><a href="/"><strong>{{ siteName }}</strong></a></li>
+			<!--<li>&copy; {{ now.year }}</li>-->
+			<li><a href="{{ socialLinks.instagram }}" target="_blank">INSTAGRAM</a></li>
+			<!--<li class="dropdown">-->
+			<!--    <a href="">SOCIAL</a>-->
+			<!--    <ul class="dropdown__menu">-->
+ 		<!--	        <li><a href="{{ socialLinks.facebook }}" target="_blank">FACEBOOK</a></li>-->
+			<!--        <li><a href="{{ socialLinks.twitter }}" target="_blank">TWITTER</a></li> -->
+			<!--        <li><a href="{{ socialLinks.instagram }}" target="_blank">INSTAGRAM</a></li>-->
+			<!--    </ul>-->
+   <!--         </li>-->
+            <li><a href="/services-unknown">SERVICES UNKNOWN</a></li>
+			<li><a href="/about">ABOUT</a></li>
+			<!--<li class="dropdown">-->
+			<!--    <a href="">INFO</a>-->
+			<!--    <ul class="dropdown__menu">-->
+			<!--        <li><a href="/about">ABOUT</a></li>-->
+			<!--        <li><a href="/team">TEAM</a></li>-->
+			<!--    </ul>-->
+			<!--</li>-->
+			<li class="dropdown">
+			    <a href="">WORK</a>
+			    <ul class="dropdown__menu">
+			        <li><a href="/work">SELECT</a></li>
+			        <li><a href="/archive">ARCHIVE</a></li>
+			    </ul>
+			</li>
+		</ul>
+		
+		<div class="loading"></div>
+		
+		<main>
+		
+			{% block content %}{% endblock %}
+		
+		</main>
+		
+		<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.js"></script>
+		<script src="{{siteUrl}}bundle.js"></script>
+			                
+    </body>
+    
+</html>

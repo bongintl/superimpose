@@ -1,0 +1,48 @@
+.row{
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class*='col-'] {
+	float: left;
+	width: 100%;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+@include tablet {
+
+  .col-1 { width: 8.3333%; }
+  .col-2 { width: 16.6667%; }
+  .col-3 { width: 25%; }
+  .col-4 { width: 33.3333%; }
+  .col-5 { width: 41.6667%; }
+  .col-6 { width: 50%; }
+  .col-7 { width: 58.3333%; }
+  .col-8 { width: 66.6667%; }
+  .col-9 { width: 75%; }
+  .col-10 { width: 83.3333%; }
+  .col-11 { width: 91.6667%; }
+  .col-12 { width: 100%; }
+  
+  .off-1 { margin-left: 8.3333%; }
+  .off-2 { margin-left: 16.6667%; }
+  .off-3 { margin-left: 25%; }
+  .off-4 { margin-left: 33.3333%; }
+  .off-5 { margin-left: 41.6667%; }
+  .off-6 { margin-left: 50%; }
+  .off-7 { margin-left: 58.3333%; }
+  .off-8 { margin-left: 66.6667%; }
+  .off-9 { margin-left: 75%; }
+  .off-10 { margin-left: 83.3333%; }
+  .off-11 { margin-left: 91.6667%; }
+
+}
+
+.inline-block { display: inline-block;}

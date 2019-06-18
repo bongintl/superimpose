@@ -1,0 +1,49 @@
+.info-main{
+    .two-d &{
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+    }
+    .super-face & {
+        height: 100%;
+    }
+}
+
+.info-inner{
+    //border: 1px solid blue;
+    pointer-events: visible;
+    .three-d & {
+        width: 59vw;
+    }
+    //margin: 0 20%;
+    p{
+        font-size: 4vw;
+        margin-bottom: 1em;
+        @include breakpoint(desktop){
+            font-size: 1.5vw;
+        }
+    }
+    a{
+        border-bottom: 0.1em solid white;
+    }
+    
+	.two-d & {
+		padding: $menu-margin-small $base-margin $base-margin $base-margin;
+		@include tablet{
+			padding: $menu-margin-medium $menu-margin-medium $base-margin $menu-margin-medium;
+		}
+		@include desktop {
+			padding: $menu-margin-large $menu-margin-large $base-margin $menu-margin-large;
+		}
+	}
+    
+    .three-d & {
+            
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+    }
+    
+}

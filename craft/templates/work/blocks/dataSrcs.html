@@ -1,0 +1,4 @@
+data-src-small="{% if img.extension != 'gif' %}{{img.getUrl('small')}}{% else %}{{img.getUrl}}{% endif %}"
+data-src-medium="{% if img.extension != 'gif' %}{{img.getUrl('medium')}}{% else %}{{img.getUrl}}{% endif %}"
+data-src-large="{% if img.extension != 'gif' %}{{img.getUrl('large')}}{% else %}{{img.getUrl}}{% endif %}"
+data-src-xlarge="{% if img.extension != 'gif' %}{{img.getUrl('xlarge')}}{% else %}{{img.getUrl}}{% endif %}"

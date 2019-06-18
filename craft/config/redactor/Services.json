@@ -1,0 +1,4 @@
+{
+	"buttons": ["format", "italic"],
+	"formatting": ["p", "h2"]
+}

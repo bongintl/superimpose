@@ -1,0 +1,31 @@
+{% header "Access-Control-Allow-Origin: *" %}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+	<div class="home-logo">
+		<div class="home-logo__inner home-logo__inner-ss">
+			<a href="/work">SUPERIMPOSE STUDIO</a>
+		</div>
+		<div class="home-logo__inner home-logo__inner-project">
+			<span class="home-logo__client"></span>
+			<strong class="home-logo__project-title"></strong>
+		</div>
+	</div>
+	
+	{% for entry in entry.featured %}
+	
+		{% set asset = entry.thumbnail.first() %}
+	
+		{% set url = asset.url('medium') %}
+		{% set w = asset.getWidth('medium') %}
+		{% set h = asset.getHeight('medium') %}
+	
+		<div class="home-img" data-title="{{entry.title}}" data-client="{{entry.client}}" style="background-image: url({{ url }})" data-width={{ w }} data-height={{ h }}>
+			<a href="{{entry.url}}"></a>
+		</div>
+	
+	{% endfor %}
+	
+{% endblock %}

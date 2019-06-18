@@ -1,0 +1,39 @@
+{% set text %}
+
+	{% if block.heading %}<h2>{{ block.heading }}</h2>{% endif %}
+	
+	{{ block.textContent }}
+	
+{% endset %}
+
+{% set image %}
+
+	{% if block.image | length %}
+
+		<div class="col-6">{% include 'work/blocks/rspImg.html' with { img: block.image.first() } %}</div>
+	
+	{% endif %}
+
+{% endset %}
+
+<div class="row row_text">
+	
+	{% if block.position == 'center' %}
+	
+		<div class="col-6 off-3">{{text}}</div>
+	
+	{% elseif block.position == 'left' %}
+	
+		<div class="col-6">{{text}}</div>
+		
+		{{image}}
+	
+	{% else %}
+	
+		{{image}}
+		
+		<div class="col-6 {% if not block.image | length %}off-6{% endif %}">{{text}}</div>
+	
+	{% endif %}
+	
+</div>

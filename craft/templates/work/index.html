@@ -1,0 +1,72 @@
+{% header "Access-Control-Allow-Origin: *" %}
+
+{% extends '_layout' %}
+
+{% block content %}
+
+	{% set params = craft.entries.section( 'work' ) %}
+	
+	<div class="main work-main horizontal">
+		
+		{% set currentRow = 0 %}
+		
+		{% set numRows = 1 %}
+		
+		{% for entry in params.find() %}
+			
+			{% if currentRow == 0 %}
+			
+				<div class="thumbnail-column work-thumbnail-column">
+					
+				{% if entry.thumbnailHeight == 'half' %}
+					
+					{% set next = entry.getNext(params) %}
+				
+					{% if next and next.thumbnailHeight == 'half' %}
+					
+						{% set numRows = 2 %}
+					
+					{% endif %}
+					
+				{% endif %}
+					
+			{% endif %}
+				
+				{% if not archive %}<a href="/project/{{ entry.slug }}">{% endif %}
+					
+					{% set thumbnail = entry.thumbnail.first() %}
+					
+					{% set orientationClass = thumbnail.width > thumbnail.height ? 'landscape' : 'portrait' %}
+					
+					<div class="work-thumbnail {{entry.thumbnailHeight}} {{orientationClass}} {{entry.thumbnailAlign}}">
+		        				
+		        		{% include 'work/blocks/rspBg.html' with { img: thumbnail, classes: 'work-thumbnail-image' } %}
+
+						<p>
+							<strong>{{entry.title}}</strong><br>
+							{{entry.client}}, {{entry.year}}
+						</p>
+													
+					</div>
+				
+				{% if not archive %}</a>{% endif %}
+				
+			{% if currentRow == numRows - 1 %}
+			
+				</div> <!-- .work-thumbnail-column -->
+				
+				{% set numRows = 1 %}
+				{% set currentRow = 0 %}
+				
+			{% else %}
+			
+				{% set currentRow = currentRow + 1 %}
+				
+			{% endif %}
+			
+		{% endfor %}
+			
+	</div>
+
+
+{% endblock %}

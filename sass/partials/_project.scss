@@ -1,0 +1,159 @@
+.project-main{
+	
+	width: 100%;
+	transition: opacity 0.5s;
+	
+	.two-d & {
+		@include menu-margin(padding);
+	}
+	
+	img{
+    	width: 100%;
+	}
+	
+	p{
+		&:first-of-type{
+			text-indent: 0;
+		}
+		text-indent: 2em;
+		opacity: 1;
+		background: black;
+		margin: 0;
+	}
+	
+	h2 {
+		font-size: 1em;
+		font-family: 'UniversLTPro-XBlackExt';
+		text-transform: uppercase;
+	}
+	
+	.super-face &{
+		img, p, .video-container{
+			transform: translate3d(0,0,0);
+		}
+	}
+	
+	.video-container{
+		height: 0;
+		padding-bottom: 9/16 * 100%;
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		position: relative;
+		overflow: hidden;
+		iframe{	
+			border: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+	
+	.auto-height{
+		background-size: contain;
+		background-repeat: no-repeat;
+		&.position-left{
+			background-position: left center;
+		}
+		&.position-center{
+			background-position: center center;
+		}
+		&.position-right{
+			background-position: right center;
+		}
+	}
+	
+	[class*='col-'] {
+		margin-bottom: 5rem;
+	}
+	
+	@include phone {
+		
+		.row_two-one-image .col-5 img:first-child{
+			margin-bottom: 5rem;
+		}
+		
+	}
+	
+	@include tablet {
+		
+		.row_two-one-image .col-6 img{
+			margin-top: 2rem;
+		}
+		
+		.row_two-one-image-largeImageLeft .col-5 img:last-child {
+			margin-left: -2rem;
+			margin-top: -2rem;
+		}
+		
+		.row_two-one-image-largeImageRight .col-5 img:last-child {
+			margin-left: 2rem;
+			margin-top: -2rem;
+		}
+		
+		.row_image-set{
+			margin-left: 0;
+			margin-right: 0;
+			[class*='col-'] {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			img{
+				width: 110%;
+			}
+			
+			[class*='col-']:nth-child(1){
+				margin-top: 1rem;
+			}
+			
+			[class*='col-']:nth-child(3){
+				margin-top: 2rem;
+			}
+			
+			&-2{
+				[class*='col-']:last-child img{
+					margin-left: -10%;
+				}
+			}
+			
+			&-3{
+				[class*='col-']:nth-child(2){
+					z-index: 10;
+					img{
+						margin-left: -5%;
+					}
+				}
+				[class*='col-']:last-child img{
+					margin-left: -10%;
+				}
+			}
+		}
+		
+		.image-stack {
+			
+			.row:first-child .col-12 {
+				margin-bottom: 0;
+			}
+			
+			.row:last-child .col-12 {
+				margin-top: -10%;
+				margin-left: 10%;
+			}
+			
+			img{
+				width: 90%;
+			}
+			
+		}
+		
+		
+	}
+	
+}
+
+.project-main-flat{
+	overflow: hidden;
+	position: fixed !important;
+}
+

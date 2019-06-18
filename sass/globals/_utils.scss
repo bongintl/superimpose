@@ -1,0 +1,8 @@
+.fade-out{
+    opacity: 0 !important;
+    transition: opacity .5s cubic-bezier(0.000, 0.755, 0.055, 0.990);
+}
+
+.blend{
+    mix-blend-mode: screen;	
+}

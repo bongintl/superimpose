@@ -1,0 +1,11 @@
+{% if img %}
+
+<img
+    class="rsp-img {{ classes is defined ? classes : '' }}"
+    data-src-small="{{img.getUrl('small')}}"
+    data-src-medium="{{img.getUrl('medium')}}"
+    data-src-large="{{img.getUrl('large')}}"
+    data-src-xlarge="{{img.getUrl('xlarge')}}"
+>
+
+{% endif %}

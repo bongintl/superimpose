@@ -1,0 +1,81 @@
+body{
+	&.two-d{
+		&.page-home,
+		&.page-info{
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+		&.page-project{
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+		&.page-work{
+			overflow-y: hidden;
+			overflow-x: scroll;
+		}
+	}
+	background: black;
+	color: white;
+	
+	transition: background .5s, color .5s;
+	
+	&.page-archive,
+	&.page-services-unknown,
+	&.page-post,
+	&.page-team, {
+		background: white;
+		color: black;
+	}
+	
+}
+
+#renderer{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	pointer-events: none;
+	& > div{
+		pointer-events: none;
+	}
+}
+
+.sizer{
+	pointer-events: none;
+	z-index: -100;
+	.two-d &{
+		display: none;
+	}
+}
+
+.loading{
+	$size: .8rem;
+	position: fixed;
+	top: 1rem;
+	background: white;
+	width: $size;
+	height: $size;
+	margin-left: -$size/2;
+	z-index: 1000;
+	border-radius: 50%;
+	left: $menu-margin-small / 2;
+	opacity: 0;
+	@include tablet {
+		left: $menu-margin-medium / 2;
+	}
+	@include desktop {
+		left: $menu-margin-large / 2;
+	}
+	&.on{
+		animation: pulse .7s .5s linear infinite alternate;
+	}
+}
+
+@keyframes pulse{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}

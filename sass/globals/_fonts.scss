@@ -1,0 +1,44 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3217698, 2016-05-12T10:30:13-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: UniversLTPro-XBlackExt by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/univers/pro-93-extra-black-extended/
+ * Copyright: Part of the digitally encoded machine readable outline data for producing the Typefaces provided is copyrighted &#x00A9; 2008 Linotype GmbH, www.linotype.com. All rights reserved. This software is the property of Linotype GmbH, and may not be reproduced, 
+ * Licensed pageviews: 250,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3217698
+ * 
+ * © 2016 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/311922");
+
+  
+@font-face {
+  font-family: 'UniversLTPro-XBlackExt';
+  src: url('fonts/311922_0_0.eot');
+  src: url('fonts/311922_0_0.eot?#iefix') format('embedded-opentype'),
+       url('fonts/311922_0_0.woff2') format('woff2'),
+       url('fonts/311922_0_0.woff') format('woff'),
+       url('fonts/311922_0_0.ttf') format('truetype');}
+
+@font-face {
+  font-family: 'Superimpose';
+  src: url('fonts/UniversLTStd-Ex.otf'); 
+}
+
+@font-face {
+  font-family: 'Superimpose';
+  src: url('fonts/UniversLTStd-Ex.otf'); 
+  font-style: italic;
+}

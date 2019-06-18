@@ -1,0 +1,10 @@
+{% if img %}
+
+
+<img
+    class="rsp-img {{ classes is defined ? classes : '' }}"
+    {% include 'work/blocks/dataSrcs.html' with { img: img } %}
+>
+
+
+{% endif %}

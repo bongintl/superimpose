@@ -1,0 +1,50 @@
+{% set largeImage %}
+
+	{% include 'work/blocks/rspImg.html' with { img: block.largeImage.first() } %}
+
+{% endset %}
+
+{% set smallImages %}
+
+		{% for asset in block.smallImages %}
+			
+			{% include 'work/blocks/rspImg.html' with { img: asset } %}
+			
+		{% endfor %}
+
+{% endset %}
+
+
+<div class="row row_two-one-image row_two-one-image-{{ block.position }}">
+
+	{% if block.position == 'largeImageLeft' %}
+	
+		<div class="col-6">
+			
+			{{largeImage}}
+			
+		</div>
+		
+		<div class="col-5 off-1">
+			
+			{{smallImages}}
+			
+		</div>
+
+	{% else %}
+	
+		<div class="col-5">
+			
+			{{smallImages}}
+			
+		</div>
+		
+		<div class="col-6 off-1">
+			
+			{{largeImage}}
+			
+		</div>
+		
+	{% endif %}
+
+</div>

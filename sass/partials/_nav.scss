@@ -1,0 +1,185 @@
+$nav-width: 0.85;
+$nav-left-pct: 100% * (1 - $nav-width) / 2;
+
+.nav{
+	&_hidden{
+		opacity: 0;
+	}
+}
+
+.nav, .project-title{
+	
+	position: fixed;
+	line-height: 1;
+	z-index: 800;
+	transition: opacity 0.5s;
+	list-style: none;
+	
+}
+
+.nav_full{
+	
+	width: 100%;
+	left: 0;
+	padding: 1em 0;
+	transition: opacity 0.25s;
+	display: none;
+	
+	@include breakpoint(tablet){
+		display: block;
+	}
+	
+	& > li{
+		box-sizing: border-box;
+		float: right;
+		box-sizing: border-box;
+		padding: 0 0.5em;
+		position: relative;
+		
+		&:first-child{
+			float: left;
+			@include menu-margin(padding-left);
+		}
+		
+		&:nth-child(2){
+			@include menu-margin(padding-right);
+		}
+	}
+	
+	&:hover{
+		opacity: 1;
+	}
+	
+}
+
+.dropdown__menu{
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .5s;
+	position: absolute;
+	padding-top: 1.5em;
+	top: 0;
+	right: 0;
+	text-align: right;
+	line-height: 1.5;
+	&.open{
+		opacity: 1;
+		pointer-events: visible;
+	}
+	li{
+		display: block;
+		padding-right: .5em;
+	}
+}
+
+.project-title,
+.project-nav {
+	width: 100vh;
+	padding-right: 10vh;
+	bottom: 1rem;
+	.three-d & {
+		@include menu-margin(bottom);
+	}
+}
+
+.project-title{
+	transform: rotate(-90deg);
+	transform-origin: 0 100%;
+	left: 2rem;
+	text-transform: uppercase;
+	li{
+		box-sizing: border-box;
+	}
+	li:first-child{
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		float: left;
+		width: 100%;
+	}
+	/*
+	li:last-child{
+		float: right;
+		text-align: right;
+		width: 20%;
+		padding-right: 3.5vw;
+	}
+	*/
+}
+
+.project-nav{
+	right: 1em;
+	transform-origin: 0 100%;
+	transform: translateX(100%) rotate(-90deg);
+	li{
+		float: left;
+		/*
+		&:last-child{
+			float: right;
+			text-align: right;
+			padding-right: 3.5vw;
+		}
+		*/
+	}
+}
+
+.nav_small{
+	
+	position: absolute;
+	font-size: 1.2em;
+	width: 100%;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	text-align: center;
+	transition: background 1s, opacity 0.5s, color .5s;
+	height: 100%;
+	pointer-events: none;
+	
+	@include breakpoint(tablet){
+		display: none;
+	}
+	
+	li{
+		padding: 1em;
+		pointer-events: visible;
+	}
+	
+	li:not(:first-child){
+		opacity: 0;
+		pointer-events: none;
+	}
+	
+	@for $i from 2 through 8 {
+		
+		li:nth-child(#{$i}){
+			transition: opacity .5s #{ (7 - $i) * .05s };
+		}
+		
+	}
+	
+	&.open{
+		
+		background: rgba(0,0,0,0.9);
+		color: white;
+		
+		li:not(:first-child){
+			opacity: 1;
+			pointer-events: visible;
+		}
+		
+		@for $i from 2 through 8 {
+			
+			li:nth-child(#{$i}){
+
+				transition: opacity .5s #{ ($i - 1) * .05s };
+			
+			}
+			
+		}
+		
+	}
+	
+}

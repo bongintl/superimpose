@@ -1,0 +1,18 @@
+.super-face{
+    overflow: hidden;
+    //background: rgba(255,0,0,0.5);
+}
+
+section{
+    position: relative;
+}
+/*
+section img{
+    //position: absolute;
+    transform: translate3d(0,0,0);
+}
+*/
+section, nav{
+    @include fade-transition;
+}
+

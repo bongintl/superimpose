@@ -1,0 +1,13 @@
+<div class="row row_image-set row_image-set-{{ block.images | length }}">
+	
+	{% for asset in block.images %}
+	
+		<div class="col-{{ block.images | length == 2 ? 6 : 4 }}">
+			
+			{% include 'work/blocks/rspImg.html' with { img: asset } %}
+			
+		</div>
+		
+	{% endfor %}
+	
+</div>

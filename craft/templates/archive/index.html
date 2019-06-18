@@ -1,0 +1,30 @@
+{% header "Access-Control-Allow-Origin: *" %}
+
+{% extends '_layout' %}
+
+{% block content %}
+
+    {% set entries = craft.entries.section( 'archive' ).find() %}
+    
+    <div class="main archive-main">
+        
+        {% for entry in entries %}
+        
+            <div class="archive-thumbnail archive-thumbnail-{{ entry.thumbnailSize | default( 'medium' ) }}">
+                
+                {% set thumbnail = entry.thumbnail.first() %}
+                
+		        {% include 'work/blocks/rspImg.html' with { img: thumbnail } %}
+                
+				<p>
+					<strong>{{entry.title}}</strong><br>
+					{{entry.client}}, {{entry.year}}
+				</p>
+                
+            </div>
+        
+        {% endfor %}
+        
+    </div>
+
+{% endblock %}

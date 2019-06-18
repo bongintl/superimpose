@@ -1,0 +1,78 @@
+html{
+    font-size: $base-font-size-small;
+    @include breakpoint(tablet){
+    	font-size: $base-font-size-medium;
+    }
+    @include breakpoint(desktop){
+    	font-size: $base-font-size-large;
+    }
+    line-height: $line-height;
+}
+
+body {
+    font-family: "Superimpose", sans-serif;
+    font-weight:normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+p {
+	font-family: "Superimpose", sans-serif;
+	/*text-indent: 3em;*/
+}
+
+.sans{
+    font-family: "Superimpose", sans-serif;
+}
+
+strong{
+	font-family: 'UniversLTPro-XBlackExt';
+	text-transform: uppercase;
+}
+
+h1 {
+	
+	.sans{
+		font-size: 0.8em;
+	}
+}
+
+h1, h2, h3 {
+	font-size: 1rem;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+}
+
+.inline p {
+	display: inline;
+}
+
+.spot {
+	content: '';
+	border-radius: 50%;
+	background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 30%,rgba(255,255,255,0) 70%,rgba(255,255,255,0) 100%);
+	display: inline-block;
+	position: relative;
+	margin: 0 0.25em;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+// .inline-title:after{
+// 	@extend .spot;
+// 	height: 0.75em;
+// 	width: 0.75em;
+// 	top: 0.05em;
+	
+// }
+
+// .inline-title-small:after{
+// 	@extend .spot;
+// 	height: 0.5em;
+// 	width: 0.5em;
+// 	top: 0.0em;
+// }
